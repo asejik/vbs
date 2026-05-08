@@ -15,7 +15,11 @@ export function CheckoutSummary({
   isSubmitting,
 }: CheckoutSummaryProps) {
   const price = location === 'Ilorin' ? 20000 : 30000
-  const total = childCount * price
+  const finalPricePerChild = location === 'Ilorin' ? 20406 : 30610
+  
+  const baseTotal = childCount * price
+  const finalTotal = childCount * finalPricePerChild
+  const feeTotal = finalTotal - baseTotal
 
   return (
     <motion.div
@@ -23,26 +27,36 @@ export function CheckoutSummary({
       animate={{ y: 0, opacity: 1 }}
       className="w-full max-w-3xl mx-auto mt-12"
     >
-      <div className="bg-white/80 backdrop-blur-xl border border-white/20 shadow-[0_20px_50px_-15px_rgba(124,58,237,0.3)] rounded-3xl p-5 flex items-center justify-between gap-6">
+      <div className="bg-white/80 backdrop-blur-xl border border-white/20 shadow-[0_20px_50px_-15px_rgba(124,58,237,0.3)] rounded-3xl p-5 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-grape/10 flex items-center justify-center text-grape">
+          <div className="w-12 h-12 rounded-2xl bg-grape/10 flex items-center justify-center text-grape shrink-0">
             <ShoppingCart className="w-6 h-6" />
           </div>
           <div>
-            <p className="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider">
+            <p className="text-[10px] font-heading font-bold text-slate-400 uppercase tracking-widest">
               {childCount} Child{childCount !== 1 ? 'ren' : ''} • {location}
             </p>
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={total}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                className="text-2xl font-heading font-black text-slate-800"
-              >
-                ₦{total.toLocaleString()}
-              </motion.p>
-            </AnimatePresence>
+            <div className="flex flex-col">
+              <span className="text-2xl font-heading font-black text-slate-800 leading-none">
+                ₦{finalTotal.toLocaleString()}
+              </span>
+              <AnimatePresence mode="wait">
+                {childCount > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex gap-2 mt-1"
+                  >
+                    <span className="text-[10px] text-slate-500 font-medium">
+                      ₦{baseTotal.toLocaleString()} Registration
+                    </span>
+                    <span className="text-[10px] text-grape font-bold">
+                      + ₦{feeTotal.toLocaleString()} Fee
+                    </span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
 

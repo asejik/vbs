@@ -75,9 +75,10 @@ export function RegistrationPage() {
     }
   }, [isSuccess])
 
-  const price = location === 'Ilorin' ? 20000 : 30000
-  const totalAmount = children.length * price
-  const amountInKobo = totalAmount * 100
+  const finalPricePerChild = location === 'Ilorin' ? 20406 : 30610
+  
+  const totalPaystackAmount = children.length * finalPricePerChild
+  const amountInKobo = totalPaystackAmount * 100
 
   const subaccount =
     location === 'Ilorin'
@@ -105,7 +106,7 @@ export function RegistrationPage() {
           formData: data,
           transactionData: {
             campus: data.location,
-            amount: totalAmount,
+            amount: totalPaystackAmount,
             reference: reference,
           },
         },
