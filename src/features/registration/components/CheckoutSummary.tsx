@@ -14,12 +14,12 @@ export function CheckoutSummary({
   isValid,
   isSubmitting,
 }: CheckoutSummaryProps) {
-  const price = location === 'Ilorin' ? 20000 : 30000
-  const finalPricePerChild = location === 'Ilorin' ? 20406 : 30610
+  const basePrice = location === 'Ilorin' ? 20000 : 30000
+  const flatFee = location === 'Ilorin' ? 406 : 610
   
-  const baseTotal = childCount * price
-  const finalTotal = childCount * finalPricePerChild
-  const feeTotal = finalTotal - baseTotal
+  const baseTotal = childCount * basePrice
+  const finalTotal = childCount > 0 ? baseTotal + flatFee : 0
+  const feeTotal = childCount > 0 ? flatFee : 0
 
   return (
     <motion.div
@@ -51,7 +51,7 @@ export function CheckoutSummary({
                       ₦{baseTotal.toLocaleString()} Registration
                     </span>
                     <span className="text-[10px] text-grape font-bold">
-                      + ₦{feeTotal.toLocaleString()} Fee
+                      + ₦{feeTotal.toLocaleString()} One-time Fee
                     </span>
                   </motion.div>
                 )}

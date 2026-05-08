@@ -75,9 +75,11 @@ export function RegistrationPage() {
     }
   }, [isSuccess])
 
-  const finalPricePerChild = location === 'Ilorin' ? 20406 : 30610
+  const basePrice = location === 'Ilorin' ? 20000 : 30000
+  const flatFee = location === 'Ilorin' ? 406 : 610
   
-  const totalPaystackAmount = children.length * finalPricePerChild
+  const totalBaseAmount = children.length * basePrice
+  const totalPaystackAmount = children.length > 0 ? totalBaseAmount + flatFee : 0
   const amountInKobo = totalPaystackAmount * 100
 
   const subaccount =
