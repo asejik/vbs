@@ -36,7 +36,7 @@ export function HeroSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-grape/10 border border-grape/20 mb-2">
             <Sparkles className="w-4 h-4 text-grape" />
-            <span className="text-sm font-semibold text-grape">VBS 2026 • Ages 3–16</span>
+            <span className="text-sm font-semibold text-grape">Vacation Bible School (VBS) • 2026 • Ages 3–16</span>
           </div>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
