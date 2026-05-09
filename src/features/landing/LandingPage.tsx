@@ -1,5 +1,5 @@
 import { HeroSection, VisionSection, ExpectSection, HomeGallerySection, CTABanner } from './components'
-import { WaveDivider } from '../../shared/ui'
+import { WaveDivider, ErrorBoundary } from '../../shared/ui'
 
 /**
  * Landing Page — Assembles all landing sections with wave dividers between them.
@@ -8,12 +8,20 @@ import { WaveDivider } from '../../shared/ui'
 export function LandingPage() {
   return (
     <main id="landing-page">
-      <HeroSection />
+      <ErrorBoundary>
+        <HeroSection />
+      </ErrorBoundary>
+      
       <WaveDivider fillTop="#FFFDF7" fillBottom="#FFFFFF" />
       <VisionSection />
+      
       <WaveDivider fillTop="#FFFFFF" fillBottom="#FFFDF7" />
       <ExpectSection />
-      <HomeGallerySection />
+      
+      <ErrorBoundary>
+        <HomeGallerySection />
+      </ErrorBoundary>
+      
       <CTABanner />
     </main>
   )

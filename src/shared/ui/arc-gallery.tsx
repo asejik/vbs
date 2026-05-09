@@ -92,6 +92,8 @@ export const ArcGallery: React.FC<ArcGalleryProps> = ({
                   <img 
                     src={src} 
                     alt={`VBS Memory ${i}`} 
+                    loading="lazy"
+                    decoding="async"
                     className="block w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                     draggable={false} 
                   />

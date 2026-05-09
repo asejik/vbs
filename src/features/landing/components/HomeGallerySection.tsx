@@ -10,7 +10,7 @@ const galleryItems: GalleryItem[] = [
     photo: { url: '/images/arrival/ATC-VBS-29.jpg', alt: 'Arrival' }
   },
   {
-    title: 'Bible Stories',
+    title: 'Bible Lessons',
     subtitle: 'Deep Roots in the Word',
     photo: { url: '/images/teaching/ATC-VBS-48.jpg', alt: 'Teaching' }
   },
@@ -58,7 +58,7 @@ const galleryItems: GalleryItem[] = [
 
 export function HomeGallerySection() {
   const containerRef = useRef<HTMLDivElement>(null)
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -69,7 +69,7 @@ export function HomeGallerySection() {
   const scale = useTransform(scrollYProgress, [0, 0.2], [0.8, 1])
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className="relative bg-cream bg-confetti overflow-visible"
       style={{ height: '250vh' }}
@@ -96,7 +96,7 @@ export function HomeGallerySection() {
 
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
         {/* Header Overlay */}
-        <motion.div 
+        <motion.div
           style={{ opacity, scale }}
           className="absolute top-20 z-20 text-center px-4"
         >
@@ -115,8 +115,8 @@ export function HomeGallerySection() {
 
         {/* 3D Gallery */}
         <div className="w-full h-full pt-40">
-          <CircularGallery 
-            items={galleryItems} 
+          <CircularGallery
+            items={galleryItems}
             radius={typeof window !== 'undefined' && window.innerWidth < 640 ? 280 : 650}
             autoRotateSpeed={0.05}
           />

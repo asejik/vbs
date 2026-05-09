@@ -70,16 +70,13 @@ export function CTABanner() {
                 Ready to Join?
               </h3>
               <p className="text-slate-500 text-sm mb-6 leading-relaxed">
-                Registration ends <span className="font-bold text-slate-800">August 2</span>. Spots fill up fast! 
+                Registration ends <span className="font-bold text-slate-800">August 2</span>. Spots fill up fast!
                 Secure your child&apos;s place in the most exciting week of the summer.
               </p>
               <Button to="/register" size="lg" className="w-full" id="cta-register-btn">
                 Register Now
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <p className="text-xs text-slate-400 mt-4">
-                Multi-child discounts available
-              </p>
             </div>
           </SectionReveal>
         </div>

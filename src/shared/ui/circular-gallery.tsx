@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, type HTMLAttributes } from 'react';
+import React, { useState, useEffect, useRef, type HTMLAttributes, useMemo } from 'react';
 
 const cn = (...classes: (string | undefined | null | false)[]) => {
   return classes.filter(Boolean).join(' ');
@@ -20,6 +20,12 @@ interface CircularGalleryProps extends HTMLAttributes<HTMLDivElement> {
   autoRotateSpeed?: number;
 }
 
+/**
+ * 3D Circular Gallery with stability fixes:
+ * 1. Removed direct window access from render path to prevent crashes.
+ * 2. Optimized scroll handling via passive listeners and direct state updates.
+ * 3. Enhanced image loading with lazy loading for performance.
+ */
 const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
   ({ items, className, radius = 600, autoRotateSpeed = 0.02, ...props }, ref) => {
     const [rotation, setRotation] = useState(0);
@@ -27,11 +33,21 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const animationFrameRef = useRef<number | null>(null);
 
+    // Track viewport state safely
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+      const checkMobile = () => setIsMobile(window.innerWidth < 640);
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     useEffect(() => {
       const handleScroll = () => {
         setIsScrolling(true);
         if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
         
+        // Use a multiplier to make the rotation feel responsive to scroll
         const scrollRotation = (window.scrollY / 10); 
         setRotation(scrollRotation);
         
@@ -55,7 +71,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
       };
     }, [isScrolling, autoRotateSpeed]);
 
-    const anglePerItem = 360 / items.length;
+    const anglePerItem = useMemo(() => 360 / Math.max(items.length, 1), [items.length]);
     
     return (
       <div
@@ -80,6 +96,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
             const relativeAngle = (itemAngle + totalRotation + 360) % 360;
             const normalizedAngle = Math.abs(relativeAngle > 180 ? 360 - relativeAngle : relativeAngle);
             
+            // Fade items as they move to the background
             const opacity = Math.max(0, 1 - (normalizedAngle / 120));
 
             return (
@@ -87,32 +104,29 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                 key={item.photo.url + i} 
                 role="group"
                 aria-label={item.title}
-                // Reduced sizes for mobile, standard for tablet+
                 className="absolute w-[200px] sm:w-[320px] h-[280px] sm:h-[440px]"
                 style={{
                   transform: `rotateY(${itemAngle}deg) translateZ(${radius}px)`,
                   left: '50%',
                   top: '50%',
-                  // Centering math adjusted for new sizes
-                  marginLeft: '-100px', // Half of 200px
-                  marginTop: '-140px', // Half of 280px
+                  marginLeft: '-100px', 
+                  marginTop: '-140px',
                   opacity: opacity,
                   transition: 'opacity 0.4s ease-out',
                   backfaceVisibility: 'hidden',
                 }}
               >
-                {/* Fixed margin adjustments for larger screens via class-based override isn't possible in style objects easily, so we use SM specific math if needed but marginLeft-100 looks okay for sm:w-320 if handled carefully or just use calc */}
                 <div 
-                   className="relative w-full h-full rounded-3xl shadow-2xl overflow-hidden group border-4 border-white bg-white/10 backdrop-blur-sm sm:ml-[-60px] sm:mt-[-80px]"
-                   style={{
-                     // Refined centering for larger screens to override the mobile default
-                     marginLeft: window.innerWidth >= 640 ? '-60px' : '0',
-                     marginTop: window.innerWidth >= 640 ? '-80px' : '0'
-                   }}
+                   className={cn(
+                     "relative w-full h-full rounded-3xl shadow-2xl overflow-hidden group border-4 border-white bg-white/10 backdrop-blur-sm transition-all duration-300",
+                     isMobile ? "" : "ml-[-60px] mt-[-80px]"
+                   )}
                 >
                   <img
                     src={item.photo.url}
                     alt={item.photo.alt}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     style={{ objectPosition: item.photo.pos || 'center' }}
                   />
@@ -130,5 +144,6 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     );
   }
 );
+
 CircularGallery.displayName = 'CircularGallery';
 export { CircularGallery };
