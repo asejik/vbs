@@ -91,7 +91,7 @@ export function VisionSection() {
                   </div>
                   <div>
                     <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Ages</p>
-                    <p className="text-lg font-heading font-black text-slate-800">3 — 16</p>
+                    <p className="text-lg font-heading font-black text-slate-800">4 — 16</p>
                   </div>
                 </div>
               </motion.div>
