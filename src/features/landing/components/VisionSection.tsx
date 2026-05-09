@@ -38,7 +38,7 @@ const FULL_VISION = {
   mission: "At The Atrium Church of Citizens of Light Church, our VISION is to prepare the next generation for a quality life in God, showing them the importance of God's Word in their everyday living.",
   experience: "The Atrium Church Vacation Bible School (VBS) is a fun, faith-filled meeting designed to help children learn about God through worship, in-depth teachings, games and exciting hands-on activities. It goes beyond a program—it is an unforgettable experience where learning meets joy, creativity meets purpose, and every child is reminded of God’s love.",
   skills: "Through engaging sessions and practical skill classes such as Cooking, Baking, AI Animation, Crocheting, Fashion Illustration, and Cinematography, children discover new talents while making meaningful connections.",
-  welcome: "Open to children ages 3–16, every child is warmly welcomed. Whether it is their first time or they have joined us before, there is always room for them to belong, grow, and shine.",
+  welcome: "Open to children ages 4–16, every child is warmly welcomed. Whether it is their first time or they have joined us before, there is always room for them to belong, grow, and shine.",
   expect: [
     "Powerful and joyful worship sessions",
     "Interactive Bible teachings made practical for children",
@@ -75,12 +75,12 @@ export function VisionSection() {
           <SectionReveal delay={0.2} className="relative">
             <div className="relative aspect-square max-w-md mx-auto">
               <div className="absolute inset-0 bg-grape/5 rounded-3xl -rotate-6 scale-105" />
-              <img 
-                src="/images/presentations/ATC-VBS-272.jpg" 
-                alt="Kids at VBS" 
+              <img
+                src="/images/presentations/ATC-VBS-272.jpg"
+                alt="Kids at VBS"
                 className="relative z-10 w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white"
               />
-              <motion.div 
+              <motion.div
                 className="absolute -bottom-6 -right-6 p-6 bg-white rounded-2xl shadow-xl z-20 hidden sm:block"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
@@ -123,15 +123,15 @@ export function VisionSection() {
       <AnimatePresence>
         {isModalOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-            <motion.div 
+            <motion.div
               className="absolute inset-0 bg-slate-900/60 backdrop-blur-md"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsModalOpen(false)}
             />
-            
-            <motion.div 
+
+            <motion.div
               className="relative bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl"
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -140,7 +140,7 @@ export function VisionSection() {
               {/* Modal Header */}
               <div className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-slate-100 p-6 flex items-center justify-between z-10">
                 <h3 className="text-2xl font-heading font-black text-slate-800">Our Full Vision</h3>
-                <button 
+                <button
                   onClick={() => setIsModalOpen(false)}
                   className="p-2 hover:bg-slate-100 rounded-full transition-colors"
                 >

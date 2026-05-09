@@ -77,7 +77,7 @@ export function RegistrationPage() {
 
   const basePrice = location === 'Ilorin' ? 20000 : 30000
   const flatFee = location === 'Ilorin' ? 406 : 610
-  
+
   const totalBaseAmount = children.length * basePrice
   const totalPaystackAmount = children.length > 0 ? totalBaseAmount + flatFee : 0
   const amountInKobo = totalPaystackAmount * 100
@@ -329,7 +329,7 @@ export function RegistrationPage() {
                     />
                     <div className="grid grid-cols-2 gap-4">
                       <Input
-                        label="Age (3-16)"
+                        label="Age (4-16)"
                         type="number"
                         placeholder="Age"
                         {...register(`children.${index}.age`)}

@@ -29,7 +29,7 @@ export const registrationSchema = z.object({
       fullName: z.string().min(3, 'Full name is required').max(100),
       dob: z.string().min(1, 'Date of birth is required'),
       gender: z.enum(['Male', 'Female', 'Other']),
-      age: z.coerce.number().min(3, 'Minimum age is 3').max(16, 'Maximum age is 16'),
+      age: z.coerce.number().min(4, 'Minimum age is 4').max(16, 'Maximum age is 16'),
       currentClass: z.string().min(1, 'Current class is required').max(50),
       interests: z
         .array(z.string())
