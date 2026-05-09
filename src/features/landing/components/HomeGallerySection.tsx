@@ -30,9 +30,9 @@ const galleryItems: GalleryItem[] = [
     photo: { url: '/images/outdoor games/ATC-VBS-147.jpg', alt: 'Games' }
   },
   {
-    title: 'Yummy Moments',
-    subtitle: 'Friendships over Food',
-    photo: { url: '/images/lunch/ATC-VBS-201.jpg', alt: 'Lunch' }
+    title: 'Lagos Spirit',
+    subtitle: 'Vibrant VBS Energy',
+    photo: { url: '/images/LAGOS/VBS-40.jpg', alt: 'Lagos Campus' }
   },
   {
     title: 'The Big Stage',

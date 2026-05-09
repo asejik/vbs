@@ -8,7 +8,7 @@ const heroImages = [
   '/images/breakout session/ATC-VBS-138.jpg',
   '/images/teaching/ATC-VBS-170.jpg',
   '/images/LAGOS/VBS-45.jpg', // Lagos
-  '/images/lunch/ATC-VBS-201.jpg',
+  '/images/LAGOS/VBS-75.jpg', // Lagos
   '/images/prayers/ATC-VBS-123.jpg',
   '/images/LAGOS/VBS-88.jpg', // Lagos
   '/images/presentations/ATC-VBS-272.jpg',

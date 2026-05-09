@@ -13,7 +13,6 @@ export type GalleryCategory =
   | 'Breakout Session'
   | 'Closing Ceremony'
   | 'Indoor Games'
-  | 'Lunch'
   | 'Outdoor Games'
   | 'Prayers'
   | 'Presentations'
@@ -37,7 +36,6 @@ export const GALLERY_CATEGORIES: GalleryCategory[] = [
   'Prayers',
   'Indoor Games',
   'Outdoor Games',
-  'Lunch',
   'Presentations',
   'Closing Ceremony',
 ]
@@ -49,7 +47,6 @@ export const CATEGORY_COLORS: Record<GalleryCategory, { bg: string; text: string
   'Breakout Session': { bg: 'bg-grape/10',  text: 'text-grape',     activeBg: 'bg-grape',         activeText: 'text-white' },
   'Closing Ceremony': { bg: 'bg-coral/10',  text: 'text-coral',     activeBg: 'bg-coral',         activeText: 'text-white' },
   'Indoor Games':     { bg: 'bg-tangerine/10', text: 'text-tangerine', activeBg: 'bg-tangerine',  activeText: 'text-white' },
-  Lunch:              { bg: 'bg-sunshine/20', text: 'text-sunshine-dark', activeBg: 'bg-sunshine-dark', activeText: 'text-white' },
   'Outdoor Games':    { bg: 'bg-ocean/10',  text: 'text-ocean',     activeBg: 'bg-ocean',         activeText: 'text-white' },
   Prayers:            { bg: 'bg-bubblegum/10', text: 'text-bubblegum', activeBg: 'bg-bubblegum',  activeText: 'text-white' },
   Presentations:      { bg: 'bg-tangerine/10', text: 'text-tangerine', activeBg: 'bg-tangerine',  activeText: 'text-white' },
@@ -119,22 +116,6 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   { id: 'ind-l2', src: '/images/LAGOS/VBS-55.jpg', alt: 'Lagos Indoor 2', category: 'Indoor Games', aspect: 'square' },
   { id: 'ind-l3', src: '/images/LAGOS/VBS-58.jpg', alt: 'Lagos Indoor 3', category: 'Indoor Games', aspect: 'landscape' },
   { id: 'ind-l4', src: '/images/LAGOS/VBS-61.jpg', alt: 'Lagos Indoor 4', category: 'Indoor Games', aspect: 'portrait' },
-
-  // ── LUNCH ──
-  { id: 'lch-1', src: '/images/lunch/ATC-VBS-111 2.jpg', alt: 'Lunch 1', category: 'Lunch', aspect: 'landscape' },
-  { id: 'lch-2', src: '/images/lunch/ATC-VBS-143.jpg', alt: 'Lunch 2', category: 'Lunch', aspect: 'square' },
-  { id: 'lch-3', src: '/images/lunch/ATC-VBS-201.jpg', alt: 'Lunch 3', category: 'Lunch', aspect: 'portrait' },
-  { id: 'lch-4', src: '/images/lunch/ATC-VBS-205.jpg', alt: 'Lunch 4', category: 'Lunch', aspect: 'landscape' },
-  { id: 'lch-5', src: '/images/lunch/ATC-VBS-208.jpg', alt: 'Lunch 5', category: 'Lunch', aspect: 'square' },
-  { id: 'lch-6', src: '/images/lunch/ATC-VBS-214 2.jpg', alt: 'Lunch 6', category: 'Lunch', aspect: 'portrait' },
-  { id: 'lch-7', src: '/images/lunch/ATC-VBS-222.jpg', alt: 'Lunch 7', category: 'Lunch', aspect: 'landscape' },
-  { id: 'lch-8', src: '/images/lunch/ATC-VBS-230.jpg', alt: 'Lunch 8', category: 'Lunch', aspect: 'square' },
-  { id: 'lch-9', src: '/images/lunch/ATC-VBS-254.jpg', alt: 'Lunch 9', category: 'Lunch', aspect: 'landscape' },
-  { id: 'lch-10', src: '/images/lunch/ATC-VBS-90.jpg', alt: 'Lunch 10', category: 'Lunch', aspect: 'portrait' },
-  { id: 'lch-l1', src: '/images/LAGOS/PXL_20250816_122121058.jpg', alt: 'Lagos Lunch 1', category: 'Lunch', aspect: 'landscape' },
-  { id: 'lch-l2', src: '/images/LAGOS/VBS-68.jpg', alt: 'Lagos Lunch 2', category: 'Lunch', aspect: 'square' },
-  { id: 'lch-l3', src: '/images/LAGOS/VBS-7.jpg', alt: 'Lagos Lunch 3', category: 'Lunch', aspect: 'landscape' },
-  { id: 'lch-l4', src: '/images/LAGOS/VBS-75.jpg', alt: 'Lagos Lunch 4', category: 'Lunch', aspect: 'portrait' },
 
   // ── OUTDOOR GAMES ──
   { id: 'out-1', src: '/images/outdoor games/ATC-VBS-147.jpg', alt: 'Outdoor Games 1', category: 'Outdoor Games', aspect: 'landscape' },
