@@ -70,22 +70,22 @@ export function Footer() {
             </h4>
             <div className="space-y-4">
               <div className="space-y-1">
-                <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Ilorin</p>
+                <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Lagos</p>
                 <a href="mailto:clcilorinvbs@gmail.com" className="flex items-center gap-2 text-slate-400 text-sm hover:text-sky transition-colors no-underline">
-                  <Mail className="w-4 h-4 shrink-0" /> clcilorinvbs@gmail.com
+                  <Mail className="w-4 h-4 shrink-0" /> clcmarylandvbs@gmail.com
                 </a>
                 <a href="tel:+2347076908384" className="flex items-center gap-2 text-slate-400 text-sm hover:text-sky transition-colors no-underline">
-                  <Phone className="w-4 h-4 shrink-0" /> 0707 690 8384
+                  <Phone className="w-4 h-4 shrink-0" /> 0706 684 8058
                 </a>
               </div>
 
               <div className="space-y-1">
-                <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Lagos</p>
+                <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Ilorin</p>
                 <a href="mailto:clclagosvbs@gmail.com" className="flex items-center gap-2 text-slate-400 text-sm hover:text-sky transition-colors no-underline">
-                  <Mail className="w-4 h-4 shrink-0" /> clclagosvbs@gmail.com
+                  <Mail className="w-4 h-4 shrink-0" /> clcilorinvbs@gmail.com
                 </a>
                 <a href="tel:+2347066848058" className="flex items-center gap-2 text-slate-400 text-sm hover:text-sky transition-colors no-underline">
-                  <Phone className="w-4 h-4 shrink-0" /> 0706 684 8058
+                  <Phone className="w-4 h-4 shrink-0" /> 0707 690 8384
                 </a>
               </div>
 
@@ -93,13 +93,13 @@ export function Footer() {
                 <div className="flex items-start gap-2 text-slate-400 text-xs">
                   <MapPin className="w-3.5 h-3.5 shrink-0 mt-0.5 text-sky" />
                   <span>
-                    <b className="text-slate-300">Ilorin:</b> Freedom Dome, Ilesanmi Bus Stop, University Road, Tanke, Ilorin
+                    <b className="text-slate-300">Lagos:</b> Freedom Dome, No. 3 Ikorodu Road, Beside Zenith Bank, Maryland
                   </span>
                 </div>
                 <div className="flex items-start gap-2 text-slate-400 text-xs">
                   <MapPin className="w-3.5 h-3.5 shrink-0 mt-0.5 text-sky" />
                   <span>
-                    <b className="text-slate-300">Lagos:</b> Freedom Dome, No. 3 Ikorodu Road, Beside Zenith Bank, Maryland
+                    <b className="text-slate-300">Ilorin:</b> Freedom Dome, Ilesanmi Bus Stop, University Road, Tanke, Ilorin
                   </span>
                 </div>
               </div>

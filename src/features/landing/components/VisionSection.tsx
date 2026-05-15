@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Heart, Users, BookOpen, X, Sparkles } from 'lucide-react'
 import { SectionReveal, Button } from '../../../shared/ui'
@@ -51,6 +51,20 @@ const FULL_VISION = {
 
 export function VisionSection() {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
+
+  const visionImages = [
+    "/images/presentations/ATC-VBS-272.jpg",
+    "/images/LAGOS/lagos 1.jpg"
+  ]
+
+  // Auto-slide effect
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveImageIndex((prev) => (prev + 1) % visionImages.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [visionImages.length])
 
   return (
     <section id="vision-section" className="relative py-20 sm:py-28 bg-white overflow-hidden">
@@ -75,11 +89,20 @@ export function VisionSection() {
           <SectionReveal delay={0.2} className="relative">
             <div className="relative aspect-square max-w-md mx-auto">
               <div className="absolute inset-0 bg-grape/5 rounded-3xl -rotate-6 scale-105" />
-              <img
-                src="/images/presentations/ATC-VBS-272.jpg"
-                alt="Kids at VBS"
-                className="relative z-10 w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white"
-              />
+              <div className="relative z-10 w-full h-full rounded-3xl shadow-2xl border-4 border-white overflow-hidden bg-slate-100">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={activeImageIndex}
+                    src={visionImages[activeImageIndex]}
+                    alt="Kids at VBS"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </AnimatePresence>
+              </div>
               <motion.div
                 className="absolute -bottom-6 -right-6 p-6 bg-white rounded-2xl shadow-xl z-20 hidden sm:block"
                 animate={{ y: [0, -10, 0] }}

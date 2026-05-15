@@ -5,7 +5,7 @@ import { SectionReveal, Button } from '../../../shared/ui'
 const details = [
   { icon: Calendar, label: 'August 10–15, 2026', sublabel: 'Mon–Sat (Wed Excluded)' },
   { icon: Clock, label: '10:00 AM – 4:00 PM', sublabel: 'Daily Schedule' },
-  { icon: MapPin, label: 'The Atrium Church', sublabel: 'Ilorin & Lagos Campuses' },
+  { icon: MapPin, label: 'The Atrium Church', sublabel: 'Lagos & Ilorin Campuses' },
 ]
 
 /**
